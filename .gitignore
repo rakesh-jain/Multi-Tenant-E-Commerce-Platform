@@ -1,0 +1,102 @@
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+env/
+venv/
+ENV/
+env/
+.venv/
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Ubuntu /media mount
+/media/rak/Data1/multi_tenant/env/
+
+# IDEs
+.vscode/
+.idea/
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+
+# Editors
+*~
+*.swp
+*.swo
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Django migrations (optional)
+**/migrations/0*.py
+
+# Environment files
+.env
+.env.local
+.env.*.local
+secrets.json
+
+# MySQL dumps
+*.sql
+mysql_data/
+
+# Ubuntu logs
+logs/
+*.log
+
+# Debug
+debug_toolbar/
+
+# Testing
+.coverage
+htmlcov/
+.cache
+
+# Node (if frontend)
+node_modules/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Ubuntu temp files
+.cache/
+*.bak
+*.tmp
+
+# Jupyter
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# Pipenv
+Pipfile.lock
+
+# Poetry
+poetry.lock
+
+# Ubuntu swap
+*.swp
+*.swo
+
+# System
+/var/
+tmp/
+proc/
+dev/
+sys/
+
+# Ubuntu thumbnails
+.xsession-errors
+
