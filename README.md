@@ -96,10 +96,23 @@ Orders
 · GET /api/orders/{id}/ - Get order details
 · PUT /api/orders/{id}/ - Update order status (store owner/staff)
 
+Customers
+· GET /api/customers/profiles/ - List customer profiles (store owner/staff).
+. GET /api/customers/profiles/1/ - Get customer profile.
+. PUT /api/customers/profiles/1/ - Update customer profile.
+. GET /api/customers/profiles/1/stats/ - Get customer statistics.
+. POST /api/customers/profiles/1/update_loyalty_points/ - Update loyalty points.
+. POST /api/customers/addresses/ - Create shipping address.
+. GET /api/customers/addresses/ - List addresses
+. DELETE /api/customers/addresses/2/ - Delete address
+
+
 Categories
 
 · GET /api/categories/ - List categories
 · POST /api/categories/ - Create category (store owner/staff)
+
+
 
 Multi-Tenancy Implementation
 
@@ -138,4 +151,4 @@ python manage.py test
 
 # Test specific app
 python manage.py test users --settings=ecommerce.test_settings
-```
+
