@@ -74,44 +74,64 @@ docker-compose up --build
 API Endpoints
 
 Authentication
+### **Authentication**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/api/auth/register/` | Register new tenant/vendor | No |
+| POST | `/api/auth/login/` | Login & get JWT token | No |
+| GET | `/api/auth/profile/` | Get user profile | Yes |
 
-· POST /api/auth/register/ - Register a new tenant/vendor
-· POST /api/auth/login/ - Login and get JWT token
-· GET /api/auth/profile/ - Get user profile
+### **Products**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/products/` | List products (all roles) | Yes |
+| POST | `/api/products/` | Create product | Owner/Staff |
+| GET | `/api/products/{id}/` | Get product details | Yes |
+| PUT | `/api/products/{id}/` | Update product | Owner/Staff |
+| DELETE | `/api/products/{id}/` | Delete product | Owner |
 
-Products
+### **Orders**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/orders/` | List orders (owner: all, customer: own) | Yes |
+| POST | `/api/orders/` | Create order | Customer |
+| GET | `/api/orders/{id}/` | Get order details | Yes |
+| PUT | `/api/orders/{id}/` | Update order status | Owner/Staff |
 
-· GET /api/products/ - List products (all roles)
-· POST /api/products/ - Create product (store owner/staff)
-· GET /api/products/{id}/ - Get product details (all roles)
-· PUT /api/products/{id}/ - Update product (store owner/staff)
-· DELETE /api/products/{id}/ - Delete product (store owner)
+### **Customers**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/customers/profiles/` | List customer profiles | Owner/Staff |
+| GET | `/api/customers/profiles/{id}/` | Get customer profile | Yes |
+| PUT | `/api/customers/profiles/{id}/` | Update customer profile | Owner/Staff |
+| GET | `/api/customers/profiles/{id}/stats/` | Customer statistics | Yes |
+| POST | `/api/customers/profiles/{id}/update_loyalty_points/` | Update loyalty points | Owner/Staff |
+| POST | `/api/customers/addresses/` | Create shipping address | Customer |
+| GET | `/api/customers/addresses/` | List addresses | Customer |
+| DELETE | `/api/customers/addresses/{id}/` | Delete address | Customer |
 
-Orders
+### **Categories**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/categories/` | List categories | Yes |
+| POST | `/api/categories/` | Create category | Owner/Staff |
 
-· GET /api/orders/ - List orders
-· Store owners/staff: All orders
-· Customers: Their own orders
-· POST /api/orders/ - Create order (customers only)
-· GET /api/orders/{id}/ - Get order details
-· PUT /api/orders/{id}/ - Update order status (store owner/staff)
+### **Tenants (Multi-Tenant)**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/tenants/public/` | Public tenant discovery | No |
+| GET | `/api/tenants/my/` | My tenants | Yes |
+| POST | `/api/tenants/{id}/add_member/` | Add tenant member | Owner |
+| GET | `/api/tenants/{id}/members/` | List tenant members | Owner |
+| GET | `/api/tenants/{id}/stats/` | Tenant statistics | Owner |
 
-Customers
-· GET /api/customers/profiles/ - List customer profiles (store owner/staff).
-. GET /api/customers/profiles/1/ - Get customer profile.
-. PUT /api/customers/profiles/1/ - Update customer profile.
-. GET /api/customers/profiles/1/stats/ - Get customer statistics.
-. POST /api/customers/profiles/1/update_loyalty_points/ - Update loyalty points.
-. POST /api/customers/addresses/ - Create shipping address.
-. GET /api/customers/addresses/ - List addresses
-. DELETE /api/customers/addresses/2/ - Delete address
-
-
-Categories
-
-· GET /api/categories/ - List categories
-· POST /api/categories/ - Create category (store owner/staff)
-
+### **Customer Features**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/api/customers/wishlist/` | Add to wishlist | Customer |
+| GET | `/api/customers/wishlist/` | List wishlist | Customer |
+| POST | `/api/customers/reviews/` | Create review | Customer |
+| GET | `/api/customers/reviews/` | List reviews | Yes |
 
 
 Multi-Tenancy Implementation
